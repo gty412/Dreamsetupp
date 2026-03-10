@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Девайсы — Dream Setup</title>
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-gray-200 antialiased">
+
+    <nav class="border-b sticky top-0 z-[100] backdrop-blur-sm bg-[var(--bg-nav)]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="text-xl font-light tracking-wider hover:opacity-80 transition" data-i18n="nav.home">~/dream-setup</a>
+            
+            <div class="flex items-center">
+                <div class="hidden md:flex space-x-8 text-sm font-light mr-8">
+                    <a href="features.html" class="hover:opacity-80 transition" data-i18n="nav.ergonomics">Эргономика</a>
+                    <a href="devices.html" class="hover:opacity-80 transition" data-i18n="nav.devices">Девайсы</a>
+                    <a href="setup.html" class="hover:opacity-80 transition" data-i18n="nav.checklist">Чек-лист</a>
+                </div>
+            
+                <div class="flex items-center space-x-6">
+                    <div id="language-switcher" class="language-switcher">
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="uk">UA</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <button id="theme-toggle" class="text-xl hover:scale-110 transition-transform duration-200">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                    <button id="menu-btn" class="flex md:hidden flex-col space-y-1.5 z-[110] relative focus:outline-none">
+                        <span id="b-line1" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line2" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line3" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobile-overlay" class="fixed inset-0 bg-[var(--bg-primary)] z-[90] flex flex-col items-center justify-center space-y-10 text-2xl font-light transform translate-x-full transition-transform duration-500 md:hidden">
+        <a href="features.html" data-i18n="nav.ergonomics">Эргономика</a>
+        <a href="devices.html" data-i18n="nav.devices">Девайсы</a>
+        <a href="setup.html" data-i18n="nav.checklist">Чек-лист</a>
+        <a href="../index.html" class="text-sm opacity-50" data-i18n="nav.back">На главную</a>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <h1 class="text-5xl font-light mb-4" data-i18n="devices.title">Выбор <span class="text-[#64B5F6]">девайсов</span></h1>
+        <p class="text-xl text-gray-400 font-light mb-16 max-w-3xl" data-i18n="devices.subtitle">Инструменты, с которыми работа превращается в удовольствие. Тактильные ощущения имеют значение.</p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <a href="devices/keyboard.html" class="group relative rounded-2xl overflow-hidden border border-gray-800 hover-scale">
+                <img src="../img/Keychron_Q1_Pro_-_RGB.jpg" alt="Keychron Q1 Pro" class="w-full h-80 object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-sm text-[#64B5F6] uppercase tracking-wider" data-i18n="devices.keyboard.tag">Механика</span>
+                    <h3 class="text-2xl font-light mt-1" data-i18n="devices.keyboard.title">Keychron Q1 Pro</h3>
+                    <p class="text-gray-300 text-sm mt-2" data-i18n="devices.keyboard.desc">Алюминиевый корпус, смазанные стабилизаторы, PBT-кейкапы</p>
+                </div>
+            </a>
+            <a href="devices/monitor.html" class="group relative rounded-2xl overflow-hidden border border-gray-800 hover-scale">
+                <img src="../img/monitor.avif" alt="LG UltraWide 40" class="w-full h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-sm text-[#64B5F6] uppercase tracking-wider" data-i18n="devices.monitor.tag">Дисплей</span>
+                    <h3 class="text-2xl font-light mt-1" data-i18n="devices.monitor.title">LG UltraWide 40"</h3>
+                    <p class="text-gray-300 text-sm mt-2" data-i18n="devices.monitor.desc">5120x2160, IPS Black, 95W Power Delivery через USB-C</p>
+                </div>
+            </a>
+            <a href="devices/mouse.html" class="group relative rounded-2xl overflow-hidden border border-gray-800 hover-scale">
+                <img src="../img/MX-Master-3S-4.jpg" alt="Logitech MX Master 3S" class="w-full h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-sm text-[#64B5F6] uppercase tracking-wider" data-i18n="devices.mouse.tag">Эргономика</span>
+                    <h3 class="text-2xl font-light mt-1" data-i18n="devices.mouse.title">Logitech MX Master 3S</h3>
+                    <p class="text-gray-300 text-sm mt-2" data-i18n="devices.mouse.desc">Бесшумные клики, магнетический скролл, поддержка нескольких устройств</p>
+                </div>
+            </a>
+            <a href="devices/headphones.html" class="group relative rounded-2xl overflow-hidden border border-gray-800 hover-scale">
+                <img src="../img/1000xm5.webp" alt="Sony WH-1000XM5" class="w-full h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-sm text-[#64B5F6] uppercase tracking-wider" data-i18n="devices.headphones.tag">Звук</span>
+                    <h3 class="text-2xl font-light mt-1" data-i18n="devices.headphones.title">Sony WH-1000XM5</h3>
+                    <p class="text-gray-300 text-sm mt-2" data-i18n="devices.headphones.desc">Лучшее шумоподавление, 30 часов работы, комфорт на весь день</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="mt-20 bg-gray-900/30 rounded-2xl p-10 border border-gray-800">
+            <h2 class="text-3xl font-light mb-8" data-i18n="devices.advice.title">Как выбирать девайсы?</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                    <div class="text-[#64B5F6] text-lg mb-2">01</div>
+                    <h3 class="text-xl font-light mb-2" data-i18n="devices.advice1.title">Приоритет — тактильность</h3>
+                    <p class="text-gray-400" data-i18n="devices.advice1.desc">Клавиатура и мышь — то, с чем вы контактируете постоянно. Не экономьте.</p>
+                </div>
+                <div>
+                    <div class="text-[#64B5F6] text-lg mb-2">02</div>
+                    <h3 class="text-xl font-light mb-2" data-i18n="devices.advice2.title">Один большой монитор</h3>
+                    <p class="text-gray-400" data-i18n="devices.advice2.desc">Лучше чем два средних. Меньше швов, удобнее для кода.</p>
+                </div>
+                <div>
+                    <div class="text-[#64B5F6] text-lg mb-2">03</div>
+                    <h3 class="text-xl font-light mb-2" data-i18n="devices.advice3.title">Беспроводная связка</h3>
+                    <p class="text-gray-400" data-i18n="devices.advice3.desc">Один приемник для всех устройств (Logi Bolt или Bluetooth).</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-gray-600 border-t border-gray-800">
+        <div class="flex justify-between items-center">
+            <p data-i18n="footer.copyright">© 2025 Dream Setup</p>
+            <div class="space-x-6">
+                <a href="#" class="hover:text-gray-400 transition" data-i18n="footer.twitter">Twitter</a>
+                <a href="#" class="hover:text-gray-400 transition" data-i18n="footer.github">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-[#64B5F6] z-50 transition-all duration-300"></div>
+    <button id="scroll-top" class="fixed bottom-20 right-6 w-12 h-12 bg-[#64B5F6] text-black rounded-full shadow-lg hidden items-center justify-center hover:bg-[#90CAF9] transition z-40">↑</button>
+    
+    <div id="search-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-start justify-center pt-20">...</div>
+    <div id="zoom-modal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center">...</div>
+    <div id="quote-container" class="max-w-6xl mx-auto px-6 py-8 text-center border-y border-gray-800"></div>
+
+    <script src="../js/theme-manager.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/burger.js"></script>
+</body>
+</html>

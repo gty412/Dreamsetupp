@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наушники — Dream Setup</title>
+    <link rel="stylesheet" href="../../css/themes.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0A0A0A; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.02); }
+        .specs-card { transition: all 0.3s ease; }
+        .specs-card:hover { border-color: #64B5F6; box-shadow: 0 0 20px rgba(100,181,246,0.2); }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-gray-200 antialiased">
+
+    <nav class="border-b sticky top-0 z-[100] backdrop-blur-sm bg-[var(--bg-nav)]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../../index.html" class="text-xl font-light tracking-wider hover:opacity-80 transition" data-i18n="nav.home">~/dream-setup</a>
+            <div class="flex items-center">
+                <div class="hidden md:flex space-x-8 text-sm font-light mr-8">
+                    <a href="../features.html" class="hover:opacity-80 transition" data-i18n="nav.ergonomics">Эргономика</a>
+                    <a href="../devices.html" class="hover:opacity-80 transition" data-i18n="nav.devices">Девайсы</a>
+                    <a href="../setup.html" class="hover:opacity-80 transition" data-i18n="nav.checklist">Чек-лист</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div id="language-switcher" class="language-switcher">
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="uk">UA</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <button id="theme-toggle" class="text-xl hover:scale-110 transition-transform duration-200">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                    <button id="menu-btn" class="flex md:hidden flex-col space-y-1.5 z-[110] relative focus:outline-none">
+                        <span id="b-line1" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line2" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line3" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobile-overlay" class="fixed inset-0 bg-[var(--bg-primary)] z-[90] flex flex-col items-center justify-center space-y-10 text-2xl font-light transform translate-x-full transition-transform duration-500 md:hidden">
+        <a href="../features.html" data-i18n="nav.ergonomics">Эргономика</a>
+        <a href="../devices.html" data-i18n="nav.devices">Девайсы</a>
+        <a href="../setup.html" data-i18n="nav.checklist">Чек-лист</a>
+        <a href="../../index.html" class="text-sm opacity-50" data-i18n="nav.back">На главную</a>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-500">
+        <a href="../../index.html" class="hover:text-gray-300" data-i18n="nav.home">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="../devices.html" class="hover:text-gray-300" data-i18n="nav.devices">Девайсы</a>
+        <span class="mx-2">/</span>
+        <span class="text-[#64B5F6]" data-i18n="headphones.title">Наушники</span>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <div class="mb-12">
+            <h1 class="text-5xl font-light mb-4" data-i18n="headphones.title">Выбор <span class="text-[#64B5F6]">наушников</span></h1>
+            <p class="text-xl text-gray-400 font-light max-w-3xl" data-i18n="headphones.subtitle">Хорошие наушники с шумоподавлением — необходимость для продуктивной работы. Они создают личное пространство даже в шумном офисе или кафе и помогают сконцентрироваться на коде.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-20">
+            <div class="relative group">
+                <div class="rounded-2xl overflow-hidden border border-gray-800 hover-scale">
+                    <img src="../../img/headphones.webp" alt="Sony WH-1000XM5" class="w-full h-auto object-cover">
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <h2 class="text-3xl font-light" data-i18n="headphones.model">Sony WH-1000XM5</h2>
+                <p class="text-gray-300 leading-relaxed" data-i18n="headphones.desc">Эталон беспроводных наушников с активным шумоподавлением. Восьмое поколение процессора шумоподавления, 30 часов работы и невероятный комфорт для многочасовых рабочих сессий.</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400" data-i18n="headphones.specs.type">Тип</span>
+                        <p class="text-xl font-light" data-i18n="headphones.specs.type.val">Закрытые</p>
+                    </div>
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400" data-i18n="headphones.specs.noise_cancelling">Шумоподавление</span>
+                        <p class="text-xl font-light" data-i18n="headphones.specs.noise_cancelling.val">Активное</p>
+                    </div>
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400" data-i18n="headphones.specs.battery">Автономность</span>
+                        <p class="text-xl font-light" data-i18n="headphones.specs.battery.val">30 ч</p>
+                    </div>
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400" data-i18n="headphones.specs.weight">Вес</span>
+                        <p class="text-xl font-light" data-i18n="headphones.specs.weight.val">250 г</p>
+                    </div>
+                </div>
+                
+                <a href="https://www.sony.ua/electronics/navushnyky-iz-dugoyu-na-golovu/wh-1000xm5" class="px-8 py-3 bg-[#64B5F6] text-black font-medium rounded-lg hover:bg-[#90CAF9] transition flex items-center gap-2">
+                    <span>🎧</span> <span data-i18n="headphones.buy">Где купить</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-2xl font-light mb-8 text-center" data-i18n="headphones.why_title">Почему стоит выбрать</h3>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">🔇</div>
+                    <h4 class="font-medium mb-2" data-i18n="headphones.benefit1.title">Шумоподавление</h4>
+                    <p class="text-sm text-gray-400" data-i18n="headphones.benefit1.desc">Лучшее в индустрии, 8 микрофонов</p>
+                </div>
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">🎵</div>
+                    <h4 class="font-medium mb-2" data-i18n="headphones.benefit2.title">Звук</h4>
+                    <p class="text-sm text-gray-400" data-i18n="headphones.benefit2.desc">LDAC, 360 Reality Audio</p>
+                </div>
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">☁️</div>
+                    <h4 class="font-medium mb-2" data-i18n="headphones.benefit3.title">Комфорт</h4>
+                    <p class="text-sm text-gray-400" data-i18n="headphones.benefit3.desc">Мягкие амбушюры, легкий вес</p>
+                </div>
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">🔄</div>
+                    <h4 class="font-medium mb-2" data-i18n="headphones.benefit4.title">Автономность</h4>
+                    <p class="text-sm text-gray-400" data-i18n="headphones.benefit4.desc">30 ч + быстрая зарядка</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20 bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+            <h3 class="text-2xl font-light mb-8" data-i18n="headphones.tech_title">Технологии шумоподавления</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-[#64B5F6] text-2xl">01</span>
+                        <h4 class="text-lg font-medium" data-i18n="headphones.tech1.title">Процессор QN1e</h4>
+                    </div>
+                    <p class="text-gray-400 mb-6" data-i18n="headphones.tech1.desc">Специализированный чип для обработки шума в реальном времени. Анализирует окружающий звук и создает противофазу.</p>
+                    
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-[#64B5F6] text-2xl">02</span>
+                        <h4 class="text-lg font-medium" data-i18n="headphones.tech2.title">8 микрофонов</h4>
+                    </div>
+                    <p class="text-gray-400" data-i18n="headphones.tech2.desc">Двойные микрофоны на каждой чашке улавливают шум с разных направлений для максимальной эффективности.</p>
+                </div>
+                
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-[#64B5F6] text-2xl">03</span>
+                        <h4 class="text-lg font-medium" data-i18n="headphones.tech3.title">Адаптивный режим</h4>
+                    </div>
+                    <p class="text-gray-400 mb-6" data-i18n="headphones.tech3.desc">Наушники автоматически определяют ваше местоположение и активность, настраивая уровень шумоподавления.</p>
+                    
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-[#64B5F6] text-2xl">04</span>
+                        <h4 class="text-lg font-medium" data-i18n="headphones.tech4.title">Быстрое внимание</h4>
+                    </div>
+                    <p class="text-gray-400" data-i18n="headphones.tech4.desc">Прикосновение к чашке приглушает музыку и пропускает голоса — чтобы услышать объявление или коллегу.</p>
+                </div>
+            </div>
+            
+            <div class="mt-6 p-4 bg-gray-800/50 rounded-lg">
+                <p class="text-sm text-gray-300 flex items-center gap-2">
+                    <span class="text-[#64B5F6]">ℹ️</span>
+                    <span data-i18n="headphones.tech_note">Эффективность шумоподавления: до 98% низкочастотного шума (гул самолета, вентиляция)</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-2xl font-light mb-8" data-i18n="headphones.specs_title">Технические характеристики</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.type_full">Тип наушников</span>
+                        <span class="font-light" data-i18n="headphones.specs.type_full.val">Закрытые, полноразмерные</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.freq">Диапазон частот</span>
+                        <span class="font-light">4 Гц - 40 000 Гц</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.impedance">Импеданс</span>
+                        <span class="font-light">48 Ом</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.sensitivity">Чувствительность</span>
+                        <span class="font-light">102 дБ</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.driver">Динамики</span>
+                        <span class="font-light" data-i18n="headphones.specs.driver.val">30 мм, с углеродным покрытием</span>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.bluetooth">Bluetooth</span>
+                        <span class="font-light">5.2, LDAC, AAC, SBC</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.battery_full">Аккумулятор</span>
+                        <span class="font-light" data-i18n="headphones.specs.battery_full.val">30 часов (с NC), 40 без NC</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.quick_charge">Быстрая зарядка</span>
+                        <span class="font-light" data-i18n="headphones.specs.quick_charge.val">3 мин = 3 часа работы</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.connector">Разъем</span>
+                        <span class="font-light" data-i18n="headphones.specs.connector.val">USB-C, 3.5 мм (в комплекте)</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="headphones.specs.weight">Вес</span>
+                        <span class="font-light" data-i18n="headphones.specs.weight.val">250 г</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-2xl font-light mb-8" data-i18n="headphones.compare_title">Сравнение с конкурентами</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="border-b border-gray-800">
+                            <th class="text-left py-4 px-4 text-gray-400 font-light" data-i18n="headphones.compare.model">Модель</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-light" data-i18n="headphones.compare.noise_cancelling">Шумоподавление</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-light" data-i18n="headphones.compare.battery">Автономность</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-light" data-i18n="headphones.compare.weight">Вес</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-light" data-i18n="headphones.compare.codecs">Кодеки</th>
+                            <th class="text-left py-4 px-4 text-gray-400 font-light" data-i18n="headphones.compare.price">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/30">
+                            <td class="py-4 px-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-[#64B5F6]">●</span>
+                                    <span class="font-medium">Sony WH-1000XM5</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-4">9.5/10</td>
+                            <td class="py-4 px-4">30 ч</td>
+                            <td class="py-4 px-4">250 г</td>
+                            <td class="py-4 px-4">LDAC</td>
+                            <td class="py-4 px-4">$34,990</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/30">
+                            <td class="py-4 px-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-gray-500">●</span>
+                                    <span>Bose QC Ultra</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-4">9/10</td>
+                            <td class="py-4 px-4">24 ч</td>
+                            <td class="py-4 px-4">250 г</td>
+                            <td class="py-4 px-4">AAC</td>
+                            <td class="py-4 px-4">$39,990</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/30">
+                            <td class="py-4 px-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-gray-500">●</span>
+                                    <span>Apple AirPods Max</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-4">8.5/10</td>
+                            <td class="py-4 px-4">20 ч</td>
+                            <td class="py-4 px-4">385 г</td>
+                            <td class="py-4 px-4">AAC</td>
+                            <td class="py-4 px-4">$59,990</td>
+                        </tr>
+                        <tr class="hover:bg-gray-900/30">
+                            <td class="py-4 px-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-gray-500">●</span>
+                                    <span>B&W PX7 S2</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-4">8/10</td>
+                            <td class="py-4 px-4">30 ч</td>
+                            <td class="py-4 px-4">310 г</td>
+                            <td class="py-4 px-4">aptX</td>
+                            <td class="py-4 px-4">$29,990</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-20">
+            <div class="bg-green-500/5 border border-green-500/20 rounded-2xl p-8">
+                <h4 class="text-xl font-light mb-6 flex items-center gap-3" data-i18n="headphones.pros">
+                    <span class="text-green-500 text-2xl">✓</span> Преимущества
+                </h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="headphones.pros1">Лучшее шумоподавление на рынке — полная изоляция</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="headphones.pros2">Нейросетевой процессор голоса для идеальных звонков</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="headphones.pros3">30 часов работы — хватит на всю рабочую неделю</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="headphones.pros4">Легкие и комфортные для многочасового ношения</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="headphones.pros5">Быстрая зарядка: 3 минуты = 3 часа работы</span></li>
+                </ul>
+            </div>
+            
+            <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
+                <h4 class="text-xl font-light mb-6 flex items-center gap-3" data-i18n="headphones.cons">
+                    <span class="text-red-500 text-2xl">✗</span> Недостатки
+                </h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="headphones.cons1">Не складываются в компактную форму (в отличие от XM4)</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="headphones.cons2">Кейс занимает много места в сумке</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="headphones.cons3">Высокая цена — не каждый готов столько заплатить</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="headphones.cons4">Нет поддержки aptX (только LDAC для Android)</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="headphones.cons5">Сенсорное управление иногда срабатывает случайно</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-2xl font-light mb-8" data-i18n="headphones.reviews_title">Что говорят пользователи</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/30 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[#64B5F6]/20 flex items-center justify-center text-[#64B5F6]">👨‍💻</div>
+                        <div>
+                            <p class="font-medium" data-i18n="headphones.review1.name">Илья, программист</p>
+                            <p class="text-sm text-gray-500" data-i18n="headphones.review1.time">1 год</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300" data-i18n="headphones.review1.text">"Работаю в опенспейсе. Включаю шумодав и полностью отключаюсь от окружающего мира."</p>
+                </div>
+                <div class="bg-gray-900/30 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[#64B5F6]/20 flex items-center justify-center text-[#64B5F6]">✈️</div>
+                        <div>
+                            <p class="font-medium" data-i18n="headphones.review2.name">Антон, DevOps</p>
+                            <p class="text-sm text-gray-500" data-i18n="headphones.review2.time">6 месяцев</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300" data-i18n="headphones.review2.text">"В самолете спасают — гул двигателей исчезает полностью. Можно работать в тишине."</p>
+                </div>
+                <div class="bg-gray-900/30 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[#64B5F6]/20 flex items-center justify-center text-[#64B5F6]">🎮</div>
+                        <div>
+                            <p class="font-medium" data-i18n="headphones.review3.name">Егор, геймдев</p>
+                            <p class="text-sm text-gray-500" data-i18n="headphones.review3.time">8 месяцев</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300" data-i18n="headphones.review3.text">"Звук в играх объемный, позиционирование отличное. Микрофон на проводе для голосового чата."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20 bg-gradient-to-r from-[#64B5F6]/10 to-transparent rounded-2xl p-8 border border-gray-800">
+            <h3 class="text-2xl font-light mb-6" data-i18n="headphones.audience_title">Для кого эти наушники</h3>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="text-3xl mb-2">👨‍💻</div>
+                    <p class="font-medium" data-i18n="headphones.audience1">Программисты</p>
+                    <p class="text-xs text-gray-500" data-i18n="headphones.audience1.desc">Концентрация на коде</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🎵</div>
+                    <p class="font-medium" data-i18n="headphones.audience2">Меломаны</p>
+                    <p class="text-xs text-gray-500" data-i18n="headphones.audience2.desc">Качественный звук</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">✈️</div>
+                    <p class="font-medium" data-i18n="headphones.audience3">Путешественники</p>
+                    <p class="text-xs text-gray-500" data-i18n="headphones.audience3.desc">Тишина в дороге</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🏢</div>
+                    <p class="font-medium" data-i18n="headphones.audience4">Офисные работники</p>
+                    <p class="text-xs text-gray-500" data-i18n="headphones.audience4.desc">Изоляция от шума</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-light mb-8" data-i18n="headphones.other">Другие девайсы</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="keyboard.html" class="block group">
+                    <div class="bg-gray-900/30 rounded-xl p-4 border border-gray-800 hover:border-[#64B5F6] transition">
+                        <img src="../../img/keyboard.webp" alt="Клавиатура" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h4 class="font-medium group-hover:text-[#64B5F6]" data-i18n="headphones.other.keyboard">Keychron Q1 Pro</h4>
+                        <p class="text-sm text-gray-500" data-i18n="headphones.other.keyboard.desc">Механическая клавиатура</p>
+                    </div>
+                </a>
+                <a href="mouse.html" class="block group">
+                    <div class="bg-gray-900/30 rounded-xl p-4 border border-gray-800 hover:border-[#64B5F6] transition">
+                        <img src="../../img/mouse.jpg" alt="Мышь" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h4 class="font-medium group-hover:text-[#64B5F6]" data-i18n="headphones.other.mouse">Logitech MX Master 3S</h4>
+                        <p class="text-sm text-gray-500" data-i18n="headphones.other.mouse.desc">Эргономичная мышь</p>
+                    </div>
+                </a>
+                <a href="monitor.html" class="block group">
+                    <div class="bg-gray-900/30 rounded-xl p-4 border border-gray-800 hover:border-[#64B5F6] transition">
+                        <img src="../../img/monitor.avif" alt="Монитор" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h4 class="font-medium group-hover:text-[#64B5F6]" data-i18n="headphones.other.monitor">LG UltraWide 40"</h4>
+                        <p class="text-sm text-gray-500" data-i18n="headphones.other.monitor.desc">Ультраширокий монитор</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-800 mt-20">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="flex justify-between items-center">
+                <p class="text-sm text-gray-600" data-i18n="footer.copyright">© 2025 Dream Setup — гид по рабочему пространству</p>
+                <div class="space-x-6">
+                    <a href="#" class="text-sm text-gray-600 hover:text-gray-400" data-i18n="footer.twitter">Twitter</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-gray-400" data-i18n="footer.github">GitHub</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-gray-400" data-i18n="footer.instagram">Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-[#64B5F6] z-50 transition-all duration-300"></div>
+    <button id="scroll-top" class="fixed bottom-20 right-6 w-12 h-12 bg-[#64B5F6] text-black rounded-full shadow-lg hidden items-center justify-center hover:bg-[#90CAF9] transition z-40">↑</button>
+
+    <script src="../../js/theme-manager.js"></script>
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/i18n.js"></script>
+</body>
+</html>

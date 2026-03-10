@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Setup — Идеальное рабочее пространство</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/themes.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-gray-200 antialiased">
+
+    <nav class="border-b sticky top-0 z-[100] backdrop-blur-sm bg-[var(--bg-nav)]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-light tracking-wider hover:opacity-80 transition" data-i18n="nav.home">~/dream-setup</a>
+            
+            <div class="flex items-center">
+                <div class="hidden md:flex space-x-8 text-sm font-light mr-8">
+                    <a href="html/features.html" class="hover:opacity-80 transition" data-i18n="nav.ergonomics">Эргономика</a>
+                    <a href="html/devices.html" class="hover:opacity-80 transition" data-i18n="nav.devices">Девайсы</a>
+                    <a href="html/setup.html" class="hover:opacity-80 transition" data-i18n="nav.checklist">Чек-лист</a>
+                </div>
+            
+                <div class="flex items-center space-x-6">
+                    <!-- Language switcher -->
+                    <div id="language-switcher" class="language-switcher">
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="uk">UA</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+
+                    <button id="theme-toggle" class="text-xl hover:scale-110 transition-transform duration-200">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                
+                    <button id="menu-btn" class="flex md:hidden flex-col space-y-1.5 z-[110] relative focus:outline-none">
+                        <span id="b-line1" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line2" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line3" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobile-overlay" class="fixed inset-0 bg-[var(--bg-primary)] z-[90] flex flex-col items-center justify-center space-y-10 text-2xl font-light transform translate-x-full transition-transform duration-500 md:hidden">
+        <a href="html/features.html" data-i18n="nav.ergonomics">Эргономика</a>
+        <a href="html/devices.html" data-i18n="nav.devices">Девайсы</a>
+        <a href="html/setup.html" data-i18n="nav.checklist">Чек-лист</a>
+        <a href="index.html" class="text-sm opacity-50" data-i18n="nav.back">На главную</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="relative">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+            <img src="img/hero-desk.avif" alt="Hero" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-20 max-w-4xl mx-auto px-6 py-32 md:py-48">
+            <h1 class="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight">
+                <span data-i18n="hero.title1">Создай</span><br>
+                <span class="font-medium text-[#64B5F6]" data-i18n="hero.title2">идеальное место</span><br>
+                <span data-i18n="hero.title3">для кода</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light" data-i18n="hero.subtitle">
+                Эргономика, эстетика и продуманность до мелочей. Пространство, которое вдохновляет на создание великих проектов.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="html/setup.html" class="px-8 py-3 bg-[#64B5F6] text-black font-medium rounded hover:bg-[#90CAF9] transition" data-i18n="hero.button.start">Начать настройку</a>
+                <a href="html/features.html" class="px-8 py-3 border border-gray-600 text-gray-200 rounded hover:border-white hover:text-white transition" data-i18n="hero.button.ideas">Изучить идеи</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cards -->
+    <section class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="text-3xl font-light text-center mb-16" data-i18n="section.title">Продумано до мельчайших деталей</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <a href="html/features.html" class="group">
+                <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800 hover:border-[#64B5F6] transition-all">
+                    <div class="text-4xl mb-4">🪑</div>
+                    <h3 class="text-2xl font-light mb-3 group-hover:text-[#64B5F6]" data-i18n="card.ergonomics.title">Эргономика</h3>
+                    <p class="text-gray-400 font-light" data-i18n="card.ergonomics.desc">Освещение, положение экрана, здоровье спины — всё, чтобы работать без усталости.</p>
+                </div>
+            </a>
+            <a href="html/devices.html" class="group">
+                <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800 hover:border-[#64B5F6] transition-all">
+                    <div class="text-4xl mb-4">⌨️</div>
+                    <h3 class="text-2xl font-light mb-3 group-hover:text-[#64B5F6]" data-i18n="card.devices.title">Девайсы</h3>
+                    <p class="text-gray-400 font-light" data-i18n="card.devices.desc">Механические клавиатуры, мыши, мониторы — тактильный кайф от каждого нажатия.</p>
+                </div>
+            </a>
+            <a href="html/setup.html" class="group">
+                <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800 hover:border-[#64B5F6] transition-all">
+                    <div class="text-4xl mb-4">✓</div>
+                    <h3 class="text-2xl font-light mb-3 group-hover:text-[#64B5F6]" data-i18n="card.checklist.title">Чек-лист</h3>
+                    <p class="text-gray-400 font-light" data-i18n="card.checklist.desc">Готовый план: от софта до организации кабелей. Просто следуй шагам.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="border-y border-gray-800 bg-gray-900/20">
+        <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+            <p class="text-2xl md:text-3xl font-light italic" data-i18n="quote.text">"Окружение, в котором ты работаешь, влияет на качество кода так же, как и твой стек технологий."</p>
+            <p class="mt-6 text-gray-500" data-i18n="quote.author">— Dream Setup Philosophy</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-12 text-sm border-t">
+        <div class="flex justify-between items-center">
+            <p data-i18n="footer.copyright">© 2025 Dream Setup — пространство для продуктивности</p>
+            <div class="space-x-6">
+                <a href="#" class="hover:opacity-80 transition" data-i18n="footer.twitter">Twitter</a>
+                <a href="#" class="hover:opacity-80 transition" data-i18n="footer.github">GitHub</a>
+                <a href="#" class="hover:opacity-80 transition" data-i18n="footer.instagram">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-[#64B5F6] z-50 transition-all duration-300"></div>
+    <button id="scroll-top" class="fixed bottom-20 right-6 w-12 h-12 bg-[#64B5F6] text-black rounded-full shadow-lg hidden items-center justify-center hover:bg-[#90CAF9] transition z-40">↑</button>
+
+    <script src="js/theme-manager.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/burger.js"></script>
+</body>
+</html>

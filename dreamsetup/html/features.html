@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эргономика — Dream Setup</title>
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-gray-200 antialiased">
+
+    <nav class="border-b sticky top-0 z-[100] backdrop-blur-sm bg-[var(--bg-nav)]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="text-xl font-light tracking-wider hover:opacity-80 transition" data-i18n="nav.home">~/dream-setup</a>
+            
+            <div class="flex items-center">
+                <div class="hidden md:flex space-x-8 text-sm font-light mr-8">
+                    <a href="features.html" class="hover:opacity-80 transition" data-i18n="nav.ergonomics">Эргономика</a>
+                    <a href="devices.html" class="hover:opacity-80 transition" data-i18n="nav.devices">Девайсы</a>
+                    <a href="setup.html" class="hover:opacity-80 transition" data-i18n="nav.checklist">Чек-лист</a>
+                </div>
+            
+                <div class="flex items-center space-x-6">
+                    <div id="language-switcher" class="language-switcher">
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="uk">UA</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <button id="theme-toggle" class="text-xl hover:scale-110 transition-transform duration-200">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                    <button id="menu-btn" class="flex md:hidden flex-col space-y-1.5 z-[110] relative focus:outline-none">
+                        <span id="b-line1" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line2" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line3" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobile-overlay" class="fixed inset-0 bg-[var(--bg-primary)] z-[90] flex flex-col items-center justify-center space-y-10 text-2xl font-light transform translate-x-full transition-transform duration-500 md:hidden">
+        <a href="features.html" data-i18n="nav.ergonomics">Эргономика</a>
+        <a href="devices.html" data-i18n="nav.devices">Девайсы</a>
+        <a href="setup.html" data-i18n="nav.checklist">Чек-лист</a>
+        <a href="../index.html" class="text-sm opacity-50" data-i18n="nav.back">На главную</a>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-16">
+            <h1 class="text-5xl font-light mb-4" data-i18n="features.title">Эргономика <span class="text-[#64B5F6]">пространства</span></h1>
+            <p class="text-xl text-gray-400 font-light max-w-3xl" data-i18n="features.subtitle">Как организовать рабочее место, чтобы сохранить здоровье и повысить продуктивность на долгие годы.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+                <div class="text-5xl mb-6">💡</div>
+                <h2 class="text-2xl font-light mb-4" data-i18n="features.lighting.title">Правильное освещение</h2>
+                <ul class="space-y-3 text-gray-300 font-light">
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.lighting.item1">Используй теплый свет (2700-3000K) в вечернее время</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.lighting.item2">Монитор не должен быть единственным источником света</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.lighting.item3">Биаскатное освещение (подсветка за монитором) снижает нагрузку на глаза</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+                <div class="text-5xl mb-6">🧘</div>
+                <h2 class="text-2xl font-light mb-4" data-i18n="features.posture.title">Положение тела</h2>
+                <ul class="space-y-3 text-gray-300 font-light">
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.posture.item1">Верхний край монитора на уровне глаз</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.posture.item2">Руки под углом 90° — запястья прямые</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.posture.item3">Ступни полностью на полу или подставке</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+                <div class="text-5xl mb-6">🔌</div>
+                <h2 class="text-2xl font-light mb-4" data-i18n="features.cables.title">Организация кабелей</h2>
+                <ul class="space-y-3 text-gray-300 font-light">
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.cables.item1">Кабель-каналы и стяжки — мастхэв для чистоты</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.cables.item2">Органайзеры под столом скрывают провода</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.cables.item3">Беспроводные устройства, где это возможно</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+                <div class="text-5xl mb-6">⏰</div>
+                <h2 class="text-2xl font-light mb-4" data-i18n="features.breaks.title">Режим работы</h2>
+                <ul class="space-y-3 text-gray-300 font-light">
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.breaks.item1">Техника Pomodoro: 25/5 или 50/15</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.breaks.item2">Правило 20-20-20: каждые 20 мин смотреть вдаль</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#64B5F6] mt-1">•</span>
+                        <span data-i18n="features.breaks.item3">Разминка для шеи и спины каждый час</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-20 relative rounded-2xl overflow-hidden border border-gray-800">
+            <img src="../img/ergo-office.avif" alt="Эргономичное рабочее место" class="w-full h-80 object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 max-w-md">
+                <h3 class="text-2xl font-light mb-2" data-i18n="features.image.title">Инвестиция в себя</h3>
+                <p class="text-gray-300 font-light" data-i18n="features.image.desc">Хорошее кресло и стол с регулировкой высоты окупаются здоровьем спины через год использования.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-gray-600 border-t border-gray-800">
+        <div class="flex justify-between items-center">
+            <p data-i18n="footer.copyright">© 2025 Dream Setup</p>
+            <div class="space-x-6">
+                <a href="#" class="hover:text-gray-400 transition" data-i18n="footer.twitter">Twitter</a>
+                <a href="#" class="hover:text-gray-400 transition" data-i18n="footer.github">GitHub</a>
+                <a href="#" class="hover:text-gray-400 transition" data-i18n="footer.instagram">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-[#64B5F6] z-50 transition-all duration-300"></div>
+    
+    <button id="scroll-top" class="fixed bottom-20 right-6 w-12 h-12 bg-[#64B5F6] text-black rounded-full shadow-lg hidden items-center justify-center hover:bg-[#90CAF9] transition z-40">
+        ↑
+    </button>
+    
+    <div id="search-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-start justify-center pt-20">
+        <div class="bg-gray-900 w-full max-w-2xl rounded-lg border border-gray-700">
+            <div class="p-4 border-b border-gray-700 flex gap-4">
+                <input type="text" id="search-input" placeholder="Поиск... (Ctrl+K)" class="flex-1 bg-gray-800 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#64B5F6]">
+                <button id="search-close" class="px-4 text-gray-400 hover:text-white">✕</button>
+            </div>
+            <div id="search-results" class="max-h-96 overflow-y-auto"></div>
+        </div>
+    </div>
+    
+    <div id="zoom-modal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+        <button id="zoom-close" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300">✕</button>
+        <img id="zoom-image" class="max-w-[90%] max-h-[90%] object-contain" src="" alt="">
+    </div>
+
+    <div id="quote-container" class="max-w-6xl mx-auto px-6 py-8 text-center border-y border-gray-800"></div>
+
+    <script src="../js/theme-manager.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/burger.js"></script>
+</body>
+</html>

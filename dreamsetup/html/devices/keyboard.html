@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клавиатура — Dream Setup</title>
+    <link rel="stylesheet" href="../../css/themes.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0A0A0A; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.02); }
+        .specs-card { transition: all 0.3s ease; }
+        .specs-card:hover { border-color: #64B5F6; box-shadow: 0 0 20px rgba(100,181,246,0.2); }
+        .keycap { background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 100%); }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-gray-200 antialiased">
+
+    <nav class="border-b sticky top-0 z-[100] backdrop-blur-sm bg-[var(--bg-nav)]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../../index.html" class="text-xl font-light tracking-wider hover:opacity-80 transition" data-i18n="nav.home">~/dream-setup</a>
+            <div class="flex items-center">
+                <div class="hidden md:flex space-x-8 text-sm font-light mr-8">
+                    <a href="../features.html" class="hover:opacity-80 transition" data-i18n="nav.ergonomics">Эргономика</a>
+                    <a href="../devices.html" class="hover:opacity-80 transition" data-i18n="nav.devices">Девайсы</a>
+                    <a href="../setup.html" class="hover:opacity-80 transition" data-i18n="nav.checklist">Чек-лист</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div id="language-switcher" class="language-switcher">
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="uk">UA</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <button id="theme-toggle" class="text-xl hover:scale-110 transition-transform duration-200">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                    <button id="menu-btn" class="flex md:hidden flex-col space-y-1.5 z-[110] relative focus:outline-none">
+                        <span id="b-line1" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line2" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line3" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobile-overlay" class="fixed inset-0 bg-[var(--bg-primary)] z-[90] flex flex-col items-center justify-center space-y-10 text-2xl font-light transform translate-x-full transition-transform duration-500 md:hidden">
+        <a href="../features.html" data-i18n="nav.ergonomics">Эргономика</a>
+        <a href="../devices.html" data-i18n="nav.devices">Девайсы</a>
+        <a href="../setup.html" data-i18n="nav.checklist">Чек-лист</a>
+        <a href="../../index.html" class="text-sm opacity-50" data-i18n="nav.back">На главную</a>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-500">
+        <a href="../../index.html" class="hover:text-gray-300" data-i18n="nav.home">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="../devices.html" class="hover:text-gray-300" data-i18n="nav.devices">Девайсы</a>
+        <span class="mx-2">/</span>
+        <span class="text-[#64B5F6]" data-i18n="keyboard.title">Клавиатура</span>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <div class="mb-12">
+            <h1 class="text-5xl font-light mb-4" data-i18n="keyboard.title">Выбор <span class="text-[#64B5F6]">клавиатуры</span></h1>
+            <p class="text-xl text-gray-400 font-light max-w-3xl" data-i18n="keyboard.subtitle">
+                Механическая клавиатура — это не просто инструмент для печати. Это тактильное удовольствие, кастомизация и полный контроль над каждым нажатием. Программисты проводят за ней тысячи часов.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-20">
+            <div class="relative group">
+                <div class="rounded-2xl overflow-hidden border border-gray-800 hover-scale">
+                    <img src="../../img/keyboard.webp" alt="Keychron Q1 Pro" class="w-full h-auto object-cover">
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <h2 class="text-3xl font-light" data-i18n="keyboard.model">Keychron Q1 Pro</h2>
+                <p class="text-gray-300 leading-relaxed" data-i18n="keyboard.desc">
+                    75% механическая клавиатура с алюминиевым корпусом, горячей заменой свитчей и беспроводным подключением. Эталон для программистов и энтузиастов.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400">Форм-фактор</span>
+                        <p class="text-xl font-light">75%</p>
+                    </div>
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400">Свитчи</span>
+                        <p class="text-xl font-light">Gateron</p>
+                    </div>
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400">Подключение</span>
+                        <p class="text-xl font-light">BT / USB-C</p>
+                    </div>
+                    <div class="bg-gray-900/50 px-4 py-2 rounded-lg border border-gray-700">
+                        <span class="text-sm text-gray-400">Материал</span>
+                        <p class="text-xl font-light">Алюминий</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-4">
+                    <a href="https://funkeys.com.ua/shop/keychron/q1_pro_white" class="px-8 py-3 bg-[#64B5F6] text-black font-medium rounded-lg hover:bg-[#90CAF9] transition flex items-center gap-2">
+                        <span>⌨️</span> Выбрать свитчи
+                    </a>
+                    <a href="https://versus.com/en" class="px-8 py-3 border border-gray-600 text-gray-200 rounded-lg hover:border-white hover:text-white transition">
+                        Сравнить модели
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-2xl font-light mb-8 text-center" data-i18n="keyboard.why_title">Почему механическая клавиатура</h3>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">⌨️</div>
+                    <h4 class="font-medium mb-2" data-i18n="keyboard.benefit1.title">Тактильность</h4>
+                    <p class="text-sm text-gray-400" data-i18n="keyboard.benefit1.desc">Каждое нажатие чувствуется пальцами</p>
+                </div>
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">🔧</div>
+                    <h4 class="font-medium mb-2" data-i18n="keyboard.benefit2.title">Кастомизация</h4>
+                    <p class="text-sm text-gray-400" data-i18n="keyboard.benefit2.desc">Смена свитчей, кейкапов, смазка</p>
+                </div>
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">⏱️</div>
+                    <h4 class="font-medium mb-2" data-i18n="keyboard.benefit3.title">Долговечность</h4>
+                    <p class="text-sm text-gray-400" data-i18n="keyboard.benefit3.desc">Ресурс 50-100 млн нажатий</p>
+                </div>
+                <div class="specs-card bg-gray-900/30 rounded-xl p-6 border border-gray-800 text-center">
+                    <div class="text-4xl mb-3">🎯</div>
+                    <h4 class="font-medium mb-2" data-i18n="keyboard.benefit4.title">Скорость</h4>
+                    <p class="text-sm text-gray-400" data-i18n="keyboard.benefit4.desc">Выше точность и скорость печати</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20 bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+            <h3 class="text-2xl font-light mb-8" data-i18n="keyboard.switch.title">Типы свитчей</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="keycap rounded-xl p-6 border border-gray-700">
+                    <div class="text-2xl mb-3">🔵</div>
+                    <h4 class="text-lg font-medium mb-2" data-i18n="keyboard.switch.linear">Линейные (Red)</h4>
+                    <p class="text-sm text-gray-400 mb-3" data-i18n="keyboard.switch.linear.desc">Плавный ход без клика и тактильного отклика. Для игр и быстрой печати.</p>
+                    <div class="flex gap-1"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="w-3 h-3 rounded-full bg-red-500"></span></div>
+                </div>
+                <div class="keycap rounded-xl p-6 border border-gray-700">
+                    <div class="text-2xl mb-3">🟤</div>
+                    <h4 class="text-lg font-medium mb-2" data-i18n="keyboard.switch.tactile">Тактильные (Brown)</h4>
+                    <p class="text-sm text-gray-400 mb-3" data-i18n="keyboard.switch.tactile.desc">Легкий тактильный отклик без щелчка. Универсальный выбор для кода.</p>
+                    <div class="flex gap-1"><span class="w-3 h-3 rounded-full bg-amber-600"></span><span class="w-3 h-3 rounded-full bg-amber-600"></span><span class="w-3 h-3 rounded-full bg-amber-600"></span></div>
+                </div>
+                <div class="keycap rounded-xl p-6 border border-gray-700">
+                    <div class="text-2xl mb-3">🔴</div>
+                    <h4 class="text-lg font-medium mb-2" data-i18n="keyboard.switch.clicky">Кликующие (Blue)</h4>
+                    <p class="text-sm text-gray-400 mb-3" data-i18n="keyboard.switch.clicky.desc">Громкий щелчок и тактильная отдача. Для тех, кто любит слышать каждый символ.</p>
+                    <div class="flex gap-1"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="w-3 h-3 rounded-full bg-blue-500"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-2xl font-light mb-8">Технические характеристики</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.form">Форм-фактор</span>
+                        <span class="font-light" data-i18n="keyboard.specs.form.val">75% (81 клавиша)</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.case">Корпус</span>
+                        <span class="font-light" data-i18n="keyboard.specs.case.val">Алюминий 6063, фрезеровка</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.connect">Подключение</span>
+                        <span class="font-light" data-i18n="keyboard.specs.connect.val">Bluetooth 5.1 / USB-C</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.battery">Аккумулятор</span>
+                        <span class="font-light" data-i18n="keyboard.specs.battery.val">4000 мАч</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.autonomy">Автономность</span>
+                        <span class="font-light" data-i18n="keyboard.specs.autonomy.val">До 300 часов (без подсветки)</span>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.hotswap">Горячая замена</span>
+                        <span class="font-light" data-i18n="keyboard.specs.hotswap.val">Да (5-pin)</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.stabs">Стабилизаторы</span>
+                        <span class="font-light" data-i18n="keyboard.specs.stabs.val">Screw-in, смазанные</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.lighting">Подсветка</span>
+                        <span class="font-light" data-i18n="keyboard.specs.lighting.val">RGB (настраиваемая)</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.keycaps">Материал кейкапов</span>
+                        <span class="font-light" data-i18n="keyboard.specs.keycaps.val">PBT, double-shot</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b border-gray-800">
+                        <span class="text-gray-400" data-i18n="keyboard.specs.weight">Вес</span>
+                        <span class="font-light" data-i18n="keyboard.specs.weight.val">~1.8 кг</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-20">
+            <div class="bg-green-500/5 border border-green-500/20 rounded-2xl p-8">
+                <h4 class="text-xl font-light mb-6 flex items-center gap-3" data-i18n="keyboard.pros">
+                    <span class="text-green-500 text-2xl">✓</span> Преимущества
+                </h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="keyboard.pros1">Алюминиевый корпус — никакого люфта и скрипа</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="keyboard.pros2">Готова к использованию из коробки (смазанные стабилизаторы)</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="keyboard.pros3">Горячая замена свитчей — легко менять под свои предпочтения</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="keyboard.pros4">Поддержка QMK/VIA — полная настройка слоев и макросов</span></li>
+                    <li class="flex items-start gap-3"><span class="text-green-500">•</span><span data-i18n="keyboard.pros5">Толстый звукоизолирующий слой внутри</span></li>
+                </ul>
+            </div>
+            <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
+                <h4 class="text-xl font-light mb-6 flex items-center gap-3" data-i18n="keyboard.cons">
+                    <span class="text-red-500 text-2xl">✗</span> Недостатки
+                </h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="keyboard.cons1">Тяжелая (почти 2 кг) — не для переноски</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="keyboard.cons2">Высокий профиль — нужен подставка под запястья</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="keyboard.cons3">Дороже пластиковых аналогов</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="keyboard.cons4">Нет выделенных клавиш макросов</span></li>
+                    <li class="flex items-start gap-3"><span class="text-red-500">•</span><span data-i18n="keyboard.cons5">Bluetooth просыпается с задержкой 1-2 секунды</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-2xl font-light mb-8">Что говорят разработчики</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/30 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[#64B5F6]/20 flex items-center justify-center text-[#64B5F6]">👨‍💻</div>
+                        <div>
+                            <p class="font-medium" data-i18n="keyboard.review1.name">Артем, backend dev</p>
+                            <p class="text-sm text-gray-500" data-i18n="keyboard.review1.time">8 месяцев</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300" data-i18n="keyboard.review1.text">"Перешел с мембранной клавиатуры год назад. Теперь не могу печатать на обычных — пальцы помнят этот приятный тактильный отклик. Код пишется сам собой."</p>
+                </div>
+                <!-- остальные два отзыва аналогично -->
+            </div>
+        </div>
+
+        <div class="mb-20 bg-gradient-to-r from-[#64B5F6]/10 to-transparent rounded-2xl p-8 border border-gray-800">
+            <h3 class="text-2xl font-light mb-6" data-i18n="keyboard.combo.title">Популярные комбинации свитчей</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                    <div class="text-[#64B5F6] text-lg mb-2">01</div>
+                    <h4 class="font-medium mb-2" data-i18n="keyboard.combo1.title">Для программирования</h4>
+                    <p class="text-sm text-gray-400" data-i18n="keyboard.combo1.desc">Gateron Brown + смазка Krytox 205g0. Баланс тактильности и тишины.</p>
+                </div>
+                <div>
+                    <div class="text-[#64B5F6] text-lg mb-2">02</div>
+                    <h4 class="font-medium mb-2" data-i18n="keyboard.combo2.title">Для офиса</h4>
+                    <p class="text-sm text-gray-400" data-i18n="keyboard.combo2.desc">Gateron Silent Red + O-ринги. Максимально тихо, не раздражает коллег.</p>
+                </div>
+                <div>
+                    <div class="text-[#64B5F6] text-lg mb-2">03</div>
+                    <h4 class="font-medium mb-2" data-i18n="keyboard.combo3.title">Для тактильного кайфа</h4>
+                    <p class="text-sm text-gray-400" data-i18n="keyboard.combo3.desc">Holy Panda или Gateron Baby Kangaroo. Выраженный тактильный отклик.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-light mb-8" data-i18n="keyboard.other">Другие девайсы</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="mouse.html" class="block group">
+                    <div class="bg-gray-900/30 rounded-xl p-4 border border-gray-800 hover:border-[#64B5F6] transition">
+                        <img src="../../img/mouse.jpg" alt="Мышь" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h4 class="font-medium group-hover:text-[#64B5F6]" data-i18n="keyboard.other.mouse">Logitech MX Master 3S</h4>
+                        <p class="text-sm text-gray-500" data-i18n="keyboard.other.mouse.desc">Эргономичная мышь</p>
+                    </div>
+                </a>
+                <a href="monitor.html" class="block group">
+                    <div class="bg-gray-900/30 rounded-xl p-4 border border-gray-800 hover:border-[#64B5F6] transition">
+                        <img src="../../img/monitor.avif" alt="Монитор" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h4 class="font-medium group-hover:text-[#64B5F6]" data-i18n="keyboard.other.monitor">LG UltraWide 40"</h4>
+                        <p class="text-sm text-gray-500" data-i18n="keyboard.other.monitor.desc">Ультраширокий монитор</p>
+                    </div>
+                </a>
+                <a href="headphones.html" class="block group">
+                    <div class="bg-gray-900/30 rounded-xl p-4 border border-gray-800 hover:border-[#64B5F6] transition">
+                        <img src="../../img/headphones.webp" alt="Наушники" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <h4 class="font-medium group-hover:text-[#64B5F6]" data-i18n="keyboard.other.headphones">Sony WH-1000XM5</h4>
+                        <p class="text-sm text-gray-500" data-i18n="keyboard.other.headphones.desc">Наушники с шумоподавлением</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-800 mt-20">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="flex justify-between items-center">
+                <p class="text-sm text-gray-600" data-i18n="footer.copyright">© 2025 Dream Setup — гид по рабочему пространству</p>
+                <div class="space-x-6">
+                    <a href="#" class="text-sm text-gray-600 hover:text-gray-400" data-i18n="footer.twitter">Twitter</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-gray-400" data-i18n="footer.github">GitHub</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-gray-400" data-i18n="footer.instagram">Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-[#64B5F6] z-50 transition-all duration-300"></div>
+    <button id="scroll-top" class="fixed bottom-20 right-6 w-12 h-12 bg-[#64B5F6] text-black rounded-full shadow-lg hidden items-center justify-center hover:bg-[#90CAF9] transition z-40">↑</button>
+
+    <script src="../../js/theme-manager.js"></script>
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/i18n.js"></script>
+</body>
+</html>

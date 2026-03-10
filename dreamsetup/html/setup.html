@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чек-лист настройки — Dream Setup</title>
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-gray-200 antialiased">
+
+    <nav class="border-b sticky top-0 z-[100] backdrop-blur-sm bg-[var(--bg-nav)]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="text-xl font-light tracking-wider hover:opacity-80 transition" data-i18n="nav.home">~/dream-setup</a>
+            
+            <div class="flex items-center">
+                <div class="hidden md:flex space-x-8 text-sm font-light mr-8">
+                    <a href="features.html" class="hover:opacity-80 transition" data-i18n="nav.ergonomics">Эргономика</a>
+                    <a href="devices.html" class="hover:opacity-80 transition" data-i18n="nav.devices">Девайсы</a>
+                    <a href="setup.html" class="hover:opacity-80 transition" data-i18n="nav.checklist">Чек-лист</a>
+                </div>
+            
+                <div class="flex items-center space-x-6">
+                    <div id="language-switcher" class="language-switcher">
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="uk">UA</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <button id="theme-toggle" class="text-xl hover:scale-110 transition-transform duration-200">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                    <button id="menu-btn" class="flex md:hidden flex-col space-y-1.5 z-[110] relative focus:outline-none">
+                        <span id="b-line1" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line2" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                        <span id="b-line3" class="w-6 h-0.5 bg-[var(--text-primary)] transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mobile-overlay" class="fixed inset-0 bg-[var(--bg-primary)] z-[90] flex flex-col items-center justify-center space-y-10 text-2xl font-light transform translate-x-full transition-transform duration-500 md:hidden">
+        <a href="features.html" data-i18n="nav.ergonomics">Эргономика</a>
+        <a href="devices.html" data-i18n="nav.devices">Девайсы</a>
+        <a href="setup.html" data-i18n="nav.checklist">Чек-лист</a>
+        <a href="../index.html" class="text-sm opacity-50" data-i18n="nav.back">На главную</a>
+    </div>
+
+    <main class="max-w-3xl mx-auto px-6 py-16">
+        <h1 class="text-5xl font-light mb-4" data-i18n="setup.title">Чек-лист <span class="text-[#64B5F6]">настройки</span></h1>
+        <p class="text-xl text-gray-400 font-light mb-12" data-i18n="setup.subtitle">Пошаговый план создания идеального рабочего места. Отмечай выполненные пункты.</p>
+
+        <div class="space-y-6" id="checklist">
+            <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+                <h2 class="text-2xl font-light mb-6 flex items-center gap-3" data-i18n="setup.hardware.title">
+                    <span class="w-8 h-8 rounded-full bg-[#64B5F6]/20 flex items-center justify-center text-[#64B5F6]">⚙️</span>
+                    Аппаратное обеспечение
+                </h2>
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="chair">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.hardware.item1">Эргономичное кресло с поддержкой поясницы</span>
+                    </label>
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="desk">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.hardware.item2">Стол с регулировкой высоты (sit-stand)</span>
+                    </label>
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="monitor-stand">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.hardware.item3">Монитор на уровне глаз (подставка или кронштейн)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+                <h2 class="text-2xl font-light mb-6 flex items-center gap-3" data-i18n="setup.software.title">
+                    <span class="w-8 h-8 rounded-full bg-[#64B5F6]/20 flex items-center justify-center text-[#64B5F6]">💻</span>
+                    Программное обеспечение
+                </h2>
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="theme">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.software.item1">Настроена тема и цветовая схема редактора (dark mode)</span>
+                    </label>
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="night-mode">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.software.item2">Установлен f.lux или встроенный ночной режим</span>
+                    </label>
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="window-manager">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.software.item3">Менеджер окон (yabai, i3, Rectangle для macOS)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-800">
+                <h2 class="text-2xl font-light mb-6 flex items-center gap-3" data-i18n="setup.atmosphere.title">
+                    <span class="w-8 h-8 rounded-full bg-[#64B5F6]/20 flex items-center justify-center text-[#64B5F6]">🌿</span>
+                    Атмосфера
+                </h2>
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="bias-lighting">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.atmosphere.item1">Подсветка за монитором (bias lighting)</span>
+                    </label>
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="plant">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.atmosphere.item2">Комнатное растение (суккулент или замиокулькас)</span>
+                    </label>
+                    <label class="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800/30 transition cursor-pointer group">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 accent-[#64B5F6] bg-gray-700 border-gray-600" data-id="cable-org">
+                        <span class="font-light text-gray-300 group-hover:text-white" data-i18n="setup.atmosphere.item3">Органайзер для кабелей, чистота на столе</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 p-6 bg-gray-900/50 rounded-2xl border border-gray-800">
+            <div class="flex justify-between mb-2">
+                <span class="text-gray-400" data-i18n="setup.progress.label">Прогресс настройки</span>
+                <span class="text-[#64B5F6]" id="progress-percent">0%</span>
+            </div>
+            <div class="w-full bg-gray-800 rounded-full h-2">
+                <div class="bg-[#64B5F6] h-2 rounded-full" style="width: 0%" id="progress-bar"></div>
+            </div>
+            <p class="text-sm text-gray-500 mt-4" data-i18n="setup.progress.hint">✓ Отмечай пункты — прогресс сохраняется автоматически</p>
+        </div>
+
+        <div class="mt-6 text-center">
+            <button id="reset-checklist" class="px-6 py-2 border border-gray-700 rounded-full text-sm text-gray-400 hover:border-gray-500 hover:text-white transition" data-i18n="setup.reset">
+                Сбросить все
+            </button>
+        </div>
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-gray-600 border-t border-gray-800">
+        <div class="flex justify-between items-center">
+            <p data-i18n="footer.copyright">© 2025 Dream Setup</p>
+            <div class="space-x-6">
+                <a href="#" class="hover:text-gray-400 transition" data-i18n="footer.twitter">Twitter</a>
+                <a href="#" class="hover:text-gray-400 transition" data-i18n="footer.github">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-[#64B5F6] z-50 transition-all duration-300"></div>
+    <button id="scroll-top" class="fixed bottom-20 right-6 w-12 h-12 bg-[#64B5F6] text-black rounded-full shadow-lg hidden items-center justify-center hover:bg-[#90CAF9] transition z-40">↑</button>
+    
+    <div id="search-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-start justify-center pt-20">...</div>
+    <div id="zoom-modal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center">...</div>
+    <div id="quote-container" class="max-w-6xl mx-auto px-6 py-8 text-center border-y border-gray-800"></div>
+
+    <script src="../js/theme-manager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checklist-item');
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+            const resetButton = document.getElementById('reset-checklist');
+            const STORAGE_KEY = 'dreamsetup-checklist';
+
+            function loadProgress() {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const progress = JSON.parse(saved);
+                    checkboxes.forEach(checkbox => {
+                        const id = checkbox.dataset.id;
+                        if (progress[id]) {
+                            checkbox.checked = true;
+                        }
+                    });
+                }
+                updateProgress();
+            }
+
+            function saveProgress() {
+                const progress = {};
+                checkboxes.forEach(checkbox => {
+                    progress[checkbox.dataset.id] = checkbox.checked;
+                });
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+            }
+ 
+            function updateProgress() {
+                const total = checkboxes.length;
+                const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const percent = total > 0 ? Math.round((checked / total) * 100) : 0;
+                
+                progressBar.style.width = percent + '%';
+                progressPercent.textContent = percent + '%';
+                
+                if (percent === 100) {
+                    progressBar.classList.remove('bg-[#64B5F6]');
+                    progressBar.classList.add('bg-green-500');
+                } else {
+                    progressBar.classList.add('bg-[#64B5F6]');
+                    progressBar.classList.remove('bg-green-500');
+                }
+            }
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateProgress();
+                    saveProgress();
+                });
+            });
+            
+            if (resetButton) {
+                resetButton.addEventListener('click', function() {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    updateProgress();
+                    saveProgress();
+                    
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg z-50 animate-fade-in';
+                    notification.textContent = '🔄 Прогресс сброшен';
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 2000);
+                });
+            }
+            
+            loadProgress();
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                .animate-fade-in {
+                    animation: fadeIn 0.3s ease forwards;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>
